@@ -110,8 +110,7 @@ function execute(minePower) {
 ## Estrutura do Player
 
 ```json
-
-player = {
+{
     "serialized": "",
     "name": "Robert",
     "life": 100,
@@ -131,10 +130,10 @@ player = {
        "nextAttack": null, 
        "nextMine": null 
    }, 
+   "isAdmin": false, 
    "createdAt": null,
    "updatedAt": null
 }
-
 ```
 
 ## Sistema de vendas
@@ -142,22 +141,22 @@ player = {
 ```js
 
 function execute() {
-        const coins = [3, 7, 15]
-        const weight = [50, 30, 20]
-        const allWeight = 100
-        let result = 0
+    const coins = [3, 7, 15]
+    const weight = [50, 30, 20]
+    const allWeight = 100
+    let result = 0
 
-        const numberRandom = Math.floor(Math.random() * (allWeight - 0) + 0)
+    const numberRandom = Math.floor(Math.random() * (allWeight - 0) + 0)
+   
+    if (numberRandom <= weight[0]) {
+        result = coins[0]
+    } else if (numberRandom <= weight[0] + weight[1]) {
+        result = coins[1]
+    } else {
+        result = coins[2]
+    }
 
-        if (numberRandom <= weight[0]) {
-            result = coins[0]
-        } else if (numberRandom <= weight[0] + weight[1]) {
-            result = coins[1]
-        } else {
-            result = coins[2]
-        }
-
-        return result
+    return result
 }
 ```
 
@@ -165,7 +164,7 @@ function execute() {
 
 ```js
 function skillsUpgrade(skill) {
-    return Math.floor(Math.pow((skill + 1), 2) * 100)
+    return Math.floor(Math.pow((skill + 1), 2) * 10)
 }
 
 ```
