@@ -17,7 +17,10 @@ class Player {
         }
         this.timestamps = {
             nextAttack: Date.now(),
-            nextMine: Date.now()
+            nextMine: Date.now(),
+            nextAttackUpdate: Date.now(),
+            nextDefenseUpdate: Date.now(),
+            nextMineUpdate: Date.now()
         }
         this.isAdmin = false
         this.createdAt = Date.now()
