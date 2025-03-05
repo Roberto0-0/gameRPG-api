@@ -2,7 +2,7 @@ class PlayerAttack {
     execute(player, enemy) {
         const damage = player.attackPower - enemy.defensePower;
 
-        if (damage === 0) return { tied: true }
+        if (damage === 0) return { success: false }
 
         if (damage < 0) {
             let oldAttackPower = player.attackPower
@@ -19,7 +19,7 @@ class PlayerAttack {
             playerAttackPower = Math.floor((positvieDamage / oldAttackPower) * 100)
 
             return {
-                tied: false,
+                success: true,
                 isWon: false,
                 player,
                 enemy,
@@ -53,7 +53,7 @@ class PlayerAttack {
         enemyLife = ((damage * oldEnemyLife) / 100)
 
         return {
-            tied: false,
+            success: true,
             isWon: true,
             player,
             enemy,
