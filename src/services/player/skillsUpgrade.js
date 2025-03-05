@@ -12,3 +12,5 @@ class PlayerSkillsUpgrade {
         }
     }
 }
+
+module.exports = { PlayerSkillsUpgrade }
