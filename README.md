@@ -4,7 +4,7 @@
 
 - O jogo é voltado para estrategias, o jogador tem habilidades de atacar e de se defender, podendo melhorar suas habilidades em combate. Melhorar sua habilidade de ataque atacando, mas sem perder, melhorar sua habilidade de defesa 
 
-## Sistema de ataque
+## sistema de ataque
 
 ```js
 /*player01 = { life: 100, attackPower: 3, defensePower: 2 }
@@ -67,7 +67,7 @@ attack(player, enemy) {
 }
 ```
 
-## Sistema de restauração de vida
+## sistema de restauração de vida
 
 ```js
 function execute(player) {
@@ -80,7 +80,7 @@ function execute(player) {
 }
 ```
 
-## Sistema de mineração 
+## sistema de mineração 
 
 - O player poder ter uma opção de minerar, essa opção é valida para ganhar diamantes, e os diamantes pode ser vendido e ganhar coins 
 
@@ -107,7 +107,7 @@ function execute(minePower) {
 }
 ```
 
-## Estrutura do Player
+## estrutura do Player
 
 ```json
 {
@@ -136,7 +136,7 @@ function execute(minePower) {
 }
 ```
 
-## Sistema de vendas
+## sistema de vendas
 
 ```js
 
@@ -166,5 +166,23 @@ function execute() {
 function skillsUpgrade(skill) {
     return Math.floor(Math.pow((skill + 1), 2) * 10)
 }
-
 ```
+## comandos do usuário 
+
+- `jogar`: cria seu personagem.
+- `me`: mostra informações do seu personagem.
+- `minerar`: coleta de diamantes.
+- `atacar [@user]`: ataca outro personagem.
+- `vida`: restauração da saúde.
+- `up [skill]`: melhora sua habilidade.
+- `vender`: vender seus diamantes.
+
+## comandos do admin
+
+- `grupo`: cria o grupo.
+- `on`: abre o jogo.
+- `off`: fecha o jogo. 
+- `clean`: remove os jogadore que não estão mais no grupo. 
+- `ban [@user]`: bane/remove o player do jogo. 
+- `get-groups`: lista todos os grupos. 
+- `get-group [session]`: obtem um grupo especifico. 
