@@ -11,9 +11,9 @@ class Player {
         this.diamonds = 0
         this.attackSuccessful = 0
         this.skills = {
-            attackPower: 1,
-            defensePower: 1,
-            minePower: 1
+            attackPower: 10,
+            defensePower: 10,
+            minePower: 10 
         }
         this.timestamps = {
             nextAttack: Date.now(),
