@@ -1,0 +1,14 @@
+{
+    "name": "botRPG",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/Roberto0-0/RPG-api.git",
+    "author": "Robert",
+    "license": "MIT",
+    "scripts": {
+        "test": "node --env-file .env --test"
+    },
+    "dependencies": {
+        "jest": "^29.7.0"
+    }
+}

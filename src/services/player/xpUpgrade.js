@@ -26,6 +26,7 @@ class PlayerXpUpgrade {
                 return {
                     updated: true,
                     newLevel: player.level,
+                    newXpRequired: player.requiredXp,
                     newXp
                 }
             }
@@ -33,6 +34,7 @@ class PlayerXpUpgrade {
             return {
                 updated: true,
                 newLevel: player.level,
+                newXpRequired: player.requiredXp,
                 newXp
             }
         }
