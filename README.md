@@ -2,7 +2,7 @@
 
 ## Como o jogo vai funcionar?
 
-- O jogo é voltado para estrategias, o jogador tem habilidades de atacar e de se defender, podendo melhorar suas habilidades em combate. Melhorar sua habilidade de ataque atacando, mas sem perder, melhorar sua habilidade de defesa 
+Depois que seu personagem for criado, ele vai ter algumas habilidades como `ataque`, `defesa` e `mineração`, essas habilidades poderão ser melhoradas, mas isso custara alguns `coins`, mas com a habilidade de minerar, você pode conseguir alguns `diamantes` e vende-los em troca de `coins`.  
 
 ## sistema de ataque
 
@@ -128,7 +128,10 @@ function execute(minePower) {
     },
    "timestamps": {
        "nextAttack": null, 
-       "nextMine": null 
+       "nextMine": null, 
+       "nextAttackUpdate": null, 
+       "nextDefenseUpdate": null, 
+       "nextMineUpdate": null 
    }, 
    "isAdmin": false, 
    "createdAt": null,
@@ -167,6 +170,17 @@ function skillsUpgrade(skill) {
     return Math.floor(Math.pow((skill + 1), 2) * 10)
 }
 ```
+## ganhos de XP
+
+1. ### vendendo diamantes
+    - ao vender os diamantes, o ganho do **XP** é calculado com base no **coins** ganhos.
+
+2. ### ganhando uma batalha
+    - ao atacar e vencer seu oponente, você recebera **XP** com base no dano causado.
+
+3. ### melhorando suas habilidades
+     - ao melhorar sua habilidade, você vai ganhar **XP** com base nos **coins** gostos.
+
 ## comandos do usuário 
 
 - `jogar`: cria seu personagem.
@@ -186,3 +200,24 @@ function skillsUpgrade(skill) {
 - `ban [@user]`: bane/remove o player do jogo. 
 - `get-groups`: lista todos os grupos. 
 - `get-group [session]`: obtem um grupo especifico. 
+
+## sistema de timestamps 
+
+- `minerar`: **10 minutos**
+- `atacar`:  **30 minutos**
+- `up [🗡️,🛡️]`:  **1 hora**
+- `up [⛏️]`:  **24 horas**
+
+## informações do player
+
+> 👤  〔**Nick**〕**1**
+
+> 🥉  **iniciante**  
+>   
+> 💰  **$0**   
+> 💎  **0**
+>
+> ❤️   **100**  
+> 🗡️  **10%**  
+> 🛡️  **10%**  
+> ⛏️   **10%**
