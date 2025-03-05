@@ -1,7 +1,7 @@
 const { GroupController } = require("./src/controllers/groupController")
 const { PlayerController } = require("./src/controllers/playerController")
 
-class RPGGame {
+class GameRPG {
     constructor(storagePath)  {
         this.storage = storagePath
         this.group = new GroupController(this.storage)
@@ -9,4 +9,4 @@ class RPGGame {
     }
 }
 
-module.exports = { RPGGame }
+module.exports = GameRPG
