@@ -1,50 +1,65 @@
 class PlayerAttack {
     execute(player, enemy) {
-        const damage = player.attackPower - enemy.defense;
+        const damage = player.attackPower - enemy.defensePower;
+
+        if (damage === 0) return { tied: true }
 
         if (damage < 0) {
-            let lossAttackPower = player.attackPower -= Math.abs(damage)
-            if (lossAttackPower <= 0) player.attackPower = 0
+            let oldAttackPower = player.attackPower
+            let playerAttackPower = 0
+            let positvieDamage = Math.abs(damage)
+
+            let currentAttackPower = player.attackPower -= positvieDamage
+            if (currentAttackPower <= 0) {
+                player.attackPower = 0
+            } else {
+                player.attackPower = currentAttackPower
+            }
+
+            playerAttackPower = Math.floor((positvieDamage / oldAttackPower) * 100)
 
             return {
+                tied: false,
                 isWon: false,
                 player,
                 enemy,
                 results: {
-                    playerAttackPower: Math.abs(damage * 10)
+                    playerAttackPower
                 }
             }
         }
 
         const oldEnemyLife = enemy.life
-        const oldEnemyDefensePower = enemy.defense
+        const oldEnemyDefensePower = enemy.defensePower
 
-        const enemyLife = enemy.life -= (damage * 10);
-        if (enemyLife <= 0) {
-            enemy.life = 0
-            enemy.defense = 0
+        var enemyDefensePower = 0
+        var enemyLife = 0
 
-            return {
-                isWon: true,
-                player,
-                enemy,
-                results: {
-                    enemyLife: (((damage * 10) * oldEnemyLife) / 100),
-                    enemyDefensePower: Math.floor((damage / oldEnemyDefensePower) * 100)
-                }
+        const currentEnemyDefensePower = enemy.defensePower -= damage
+        if (currentEnemyDefensePower <= 0) {
+            enemy.defensePower = 0
+
+            const currentEnemyLife = enemy.life -= damage;
+            if (currentEnemyLife <= 0) {
+                enemy.life = 0
+            } else {
+                enemy.life = currentEnemyLife
             }
+        } else {
+            enemy.defensePower = currentEnemyDefensePower
         }
 
-        enemy.life = enemyLife
-        enemy.defense -= damage
+        enemyDefensePower = Math.floor((damage / oldEnemyDefensePower) * 100)
+        enemyLife = ((damage * oldEnemyLife) / 100)
 
         return {
+            tied: false,
             isWon: true,
             player,
             enemy,
             results: {
-                enemyLife: (((damage * 10) * oldEnemyLife) / 100),
-                enemyDefensePower: Math.floor((damage / oldEnemyDefensePower) * 100)
+                enemyLife,
+                enemyDefensePower
             }
         }
     }
