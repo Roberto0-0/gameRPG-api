@@ -19,7 +19,7 @@ player01.life -= (6*100)*/
 attack(player, enemy) {
     const damage = player.attackPower - enemy.defensePower;
 
-    if (damage === 0) return { tied: true }
+    if (damage === 0) return { success: false }
 
     if (damage < 0) {
         let oldAttackPower = player.attackPower
@@ -36,7 +36,7 @@ attack(player, enemy) {
         playerAttackPower = Math.floor((positvieDamage / oldAttackPower) * 100)
 
         return {
-            isWon: false,
+            success: true,
             player,
             enemy,
             results: {
@@ -69,10 +69,11 @@ attack(player, enemy) {
     enemyLife = ((damage * oldEnemyLife) / 100)
 
     return {
-       isWon: true,
-       player,
-       enemy,
-       results: {
+        success: true,
+        isWon: true,
+        player,
+        jenemy,
+        results: {
            enemyLife,
            enemyDefensePower
        }
@@ -104,13 +105,13 @@ function execute(minePower) {
     const diamondsRandom = (start, end) => Math.floor(Math.random() * (end - start) + start)
     let result = 0
 
-    if (minePower >= 9) {
+    if (minePower >= 90) {
         result = diamondsRandom(20, 31)
-    } else if (minePower >= 7) {
+    } else if (minePower >= 70) {
         result = diamondsRandom(15, 21)
-    } else if (minePower >= 5) {
+    } else if (minePower >= 50) {
         result = diamondsRandom(10, 16)
-    } else if (minePower >= 3) {
+    } else if (minePower >= 30) {
         result = diamondsRandom(5, 11)
     } else {
         result = diamondsRandom(1, 6)
@@ -135,9 +136,9 @@ function execute(minePower) {
     "diamonds": 0,
     "attacksSuccessful": 0,
     "skills": {
-        "attackPower": 1,
-        "defensePower": 1,
-        "minerPower": 1
+        "attackPower": 10,
+        "defensePower": 10,
+        "minerPower": 10
     },
    "timestamps": {
        "nextAttack": null, 
@@ -180,7 +181,8 @@ function execute() {
 
 ```js
 function skillsUpgrade(skill) {
-    return Math.floor(Math.pow((skill + 1), 2) * 10)
+    const _skill = skill + 10
+    return Math.floor(Math.pow((_skill/10), 2) * 10)
 }
 ```
 ## ganhos de XP
