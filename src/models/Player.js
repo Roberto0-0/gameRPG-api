@@ -19,6 +19,7 @@ class Player {
             nextAttack: Date.now(),
             nextMine: Date.now()
         }
+        this.isAdmin = false
         this.createdAt = Date.now()
         this.updatedAt = Date.now()
     }
