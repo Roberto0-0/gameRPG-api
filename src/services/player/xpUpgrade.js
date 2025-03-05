@@ -1,8 +1,8 @@
 const { xpRequired } = require("./xpRequired")
 
 class PlayerXpUpgrade {
-    execute(player, xpAmount) {
-        const xpAdded = player.xp += Number(xpAmount)
+    execute(player, xp) {
+        const xpAdded = player.xp += Number(xp)
         var newXp = 0
 
         if (player.level == 100) return {
