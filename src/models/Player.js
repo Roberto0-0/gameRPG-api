@@ -2,8 +2,8 @@ class Player {
     constructor(serialized, name) {
         this.serialized = serialized
         this.name = name
-        this.life = 100
-        this.currentLife = 100
+        this.health = 100
+        this.currentHealth = 100
         this.level = 1
         this.xp = 0
         this.requiredXp = this.requiredXpCalculate(this.level)

@@ -8,7 +8,5 @@
     "scripts": {
         "test": "node --env-file .env --test"
     },
-    "dependencies": {
-        "jest": "^29.7.0"
-    }
+    "dependencies": {}
 }

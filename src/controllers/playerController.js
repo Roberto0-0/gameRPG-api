@@ -7,7 +7,7 @@ const { PlayerXpUpgrade } = require("../services/player/xpUpgrade")
 const { PlayerCoinsTaxa } = require("../services/player/coinsTaxa")
 const { PlayerSellDiamond } = require("../services/player/diamondSell")
 const { PlayerSkillsUpgrade } = require("../services/player/skillsUpgrade")
-const { PlayerLifeRestaurestion } = require("../services/player/lifeRestoration")
+const { PlayerHealthRestaurestion } = require("../services/player/healthRestoration")
 
 const path = require("node:path")
 
@@ -30,8 +30,8 @@ class PlayerController {
         return new PlayerAttack().execute(player, enemy)
     }
 
-    lifeRestoration(player) {
-        return new PlayerLifeRestaurestion().execute(player)
+    healthRestoration(player) {
+        return new PlayerHealthRestaurestion().execute(player)
     }
 
     mine(minePower) {
