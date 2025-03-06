@@ -46,8 +46,8 @@ class PlayerController {
         return new PlayerCoinsTaxa().execute(coins)
     }
 
-    diamondSell() {
-        return new PlayerSellDiamond().execute()
+    diamondSell(diamonds) {
+        return new PlayerSellDiamond().execute(diamonds)
     }
 
     skillsUpgrade(skill) {
