@@ -1,9 +1,12 @@
 class PlayerSellDiamond {
-    execute() {
+    execute(diamonds) {
         const coins = [5, 15, 30]
         const weight = [50, 30, 20]
         const allWeight = 100
+
         let result = 0
+        let playerCoins = 0
+
 
         const numberRandom = Math.floor(Math.random() * (allWeight - 1) + 0)
 
@@ -15,7 +18,9 @@ class PlayerSellDiamond {
             result = coins[2]
         }
 
-        return result
+        playerCoins = diamonds * coins
+
+        return playerCoins 
     }
 }
 
