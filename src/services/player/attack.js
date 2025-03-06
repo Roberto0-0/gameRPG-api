@@ -1,6 +1,6 @@
 class PlayerAttack {
-    execute(player, enemy) {
-        const damage = player.attackPower - enemy.defensePower;
+    execute(player, opponent) {
+        const damage = player.attackPower - opponent.defensePower;
 
         if (damage === 0) return { success: false }
 
@@ -22,44 +22,44 @@ class PlayerAttack {
                 success: true,
                 isWon: false,
                 player,
-                enemy,
+                opponent,
                 results: {
                     playerAttackPower
                 }
             }
         }
 
-        const oldEnemyLife = enemy.life
-        const oldEnemyDefensePower = enemy.defensePower
+        const oldOpponentHealth = opponent.health
+        const oldOpponentDefensePower = opponent.defensePower
 
-        var enemyDefensePower = 0
-        var enemyLife = 0
+        var opponentDefensePower = 0
+        var opponentHealth = 0
 
-        const currentEnemyDefensePower = enemy.defensePower -= damage
-        if (currentEnemyDefensePower <= 0) {
-            enemy.defensePower = 0
+        const currentOpponentDefensePower = opponent.defensePower -= damage
+        if (currentOpponentDefensePower <= 0) {
+            opponent.defensePower = 0
 
-            const currentEnemyLife = enemy.life -= damage;
-            if (currentEnemyLife <= 0) {
-                enemy.life = 0
+            const currentOppponentHealth = opponent.health -= damage;
+            if (currentOppponentHealth <= 0) {
+                opponent.health = 0
             } else {
-                enemy.life = currentEnemyLife
+                opponent.health = currentOppponentHealth
             }
         } else {
-            enemy.defensePower = currentEnemyDefensePower
+            opponent.defensePower = currentOpponentDefensePower
         }
 
-        enemyDefensePower = Math.floor((damage / oldEnemyDefensePower) * 100)
-        enemyLife = ((damage * oldEnemyLife) / 100)
+        opponentDefensePower = Math.floor((damage / oldOpponentDefensePower) * 100)
+        opponentHealth = ((damage * oldOpponentHealth) / 100)
 
         return {
             success: true,
             isWon: true,
             player,
-            enemy,
+            opponent,
             results: {
-                enemyLife,
-                enemyDefensePower
+                opponentHealth: opponentHealth,
+                opponentDefensePower: opponentDefensePower
             }
         }
     }
