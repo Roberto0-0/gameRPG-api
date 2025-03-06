@@ -18,7 +18,7 @@ class PlayerSellDiamond {
             result = coins[2]
         }
 
-        playerCoins = diamonds * coins
+        playerCoins = diamonds * result 
 
         return playerCoins 
     }
