@@ -7,7 +7,7 @@ const path = require("node:path")
 
 class GroupController {
     constructor(storagePath) {
-        this.storage = path.join(process.cwd(), `${storagePath}/${process.env.FOLDER_NAME}`)
+        this.storage = path.join(process.cwd(), `${storagePath}/RPG_storage`)
         this._storagePathExist()
     }
 
