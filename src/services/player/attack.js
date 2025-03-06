@@ -45,12 +45,13 @@ class PlayerAttack {
             } else {
                 opponent.health = currentOppponentHealth
             }
+
+            opponentHealth = ((damage * oldOpponentHealth) / 100)
         } else {
             opponent.defensePower = currentOpponentDefensePower
         }
 
         opponentDefensePower = Math.floor((damage / oldOpponentDefensePower) * 100)
-        opponentHealth = ((damage * oldOpponentHealth) / 100)
 
         return {
             success: true,
