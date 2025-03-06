@@ -127,11 +127,11 @@ function execute(minePower) {
 {
     "serialized": "",
     "name": "Robert",
-    "life": 100,
-    "currentLife": 100,
+    "health": 100,
+    "currentHealth": 100,
     "level": 1,
     "xp": 0,
-    "requiredXp": 100, 
+    "requiredXp": 10, 
     "coins": 0,
     "diamonds": 0,
     "attacksSuccessful": 0,
@@ -236,3 +236,28 @@ function skillsUpgrade(skill) {
 > 🗡️  **10%**  
 > 🛡️  **10%**  
 > ⛏️   **10%**
+
+## estrutura de arquivos
+
+```
+src
+├── commands
+│   ├── admin
+│   │   ├── create.js
+│   │   ├── get-group.js
+│   │   ├── get-groups.js
+│   │   ├── off.js
+│   │   └── on.js
+│   └── player
+│       ├── attack.js
+│       ├── create.js
+│       ├── health.js
+│       ├── me.js
+│       ├── mine.js
+│       ├── sell.js
+│       └── up.js
+└── helper
+    └── timeAgo.js
+
+4 directories, 13 files
+```
