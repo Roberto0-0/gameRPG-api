@@ -5,18 +5,28 @@ class PlayerAttack {
         if (damage === 0) return { success: false }
 
         if (damage < 0) {
-            let oldAttackPower = player.attackPower
+            let oldPlayerAttackPower = player.attackPower
+            let oldPlayerHealth = player.health
             let playerAttackPower = 0
-            let positvieDamage = Math.abs(damage)
+            let playerHealth = 0
+            let damageReturned = Math.abs(damage)
 
-            let currentAttackPower = player.attackPower -= positvieDamage
+            let currentAttackPower = player.attackPower -= damageReturned
             if (currentAttackPower <= 0) {
                 player.attackPower = 0
+
+                const currentPlayerHealth = player.health -= damageReturned
+                if (currentPlayerHealth <= 0) {
+                    player.health = 0
+                } else {
+                    player.health = currentPlayerHealth
+                }
+                playerHealth = (oldPlayerHealth === 0) ? 0 : Math.floor((damageReturned / oldPlayerHealth) * 100)
             } else {
                 player.attackPower = currentAttackPower
             }
 
-            playerAttackPower = Math.floor((positvieDamage / oldAttackPower) * 100)
+            playerAttackPower = (oldPlayerAttackPower === 0) ? 0 : Math.floor((damageReturned / oldPlayerAttackPower) * 100)
 
             return {
                 success: true,
@@ -24,6 +34,7 @@ class PlayerAttack {
                 player,
                 opponent,
                 results: {
+                    playerHealth,
                     playerAttackPower
                 }
             }
