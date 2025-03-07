@@ -7,76 +7,92 @@ Depois que seu personagem for criado, ele vai ter algumas habilidades como `ataq
 ## sistema de ataque
 
 ```js
-/*player01 = { life: 100, attackPower: 3, defensePower: 2 }
+/*
+player01 = { life: 100, attackPower: 3, defensePower: 2 }
 player02 = { life: 100, attackPower: 8, defensePower: 4 }
 
-player02 ataca player01
+player02 attack player01
 
-(8-2) = 6
+damage = (8-2)
 
-player01.life -= (6*100)*/ 
+player01.health -= damage
+player01.attackPower -= damage 
+*/ 
 
-attack(player, enemy) {
-    const damage = player.attackPower - enemy.defensePower;
+function attack(player, opponent) {
+    const damage = player.attackPower - opponent.defensePower;
 
     if (damage === 0) return { success: false }
 
     if (damage < 0) {
-        let oldAttackPower = player.attackPower
+        let oldPlayerAttackPower = player.attackPower
+        let oldPlayerHealth = player.health
         let playerAttackPower = 0
-        let positvieDamage = Math.abs(damage)
+        let playerHealth = 0
+        let damageReturned = Math.abs(damage)
 
-        let currentAttackPower = player.attackPower -= positvieDamage
+        let currentAttackPower = player.attackPower -= damageReturned
         if (currentAttackPower <= 0) {
             player.attackPower = 0
+
+            const currentPlayerHealth = player.health -= damageReturned
+            if (currentPlayerHealth <= 0) {
+                player.health = 0
+            } else {
+                player.health = currentPlayerHealth
+            }
+            playerHealth = (oldPlayerHealth === 0) ? 0 : Math.floor((damageReturned / oldPlayerHealth) * 100)
         } else {
             player.attackPower = currentAttackPower
         }
 
-        playerAttackPower = Math.floor((positvieDamage / oldAttackPower) * 100)
+        playerAttackPower = (oldPlayerAttackPower === 0) ? 0 : Math.floor((damageReturned / oldPlayerAttackPower) * 100)
 
         return {
             success: true,
+            isWon: false,
             player,
-            enemy,
+            opponent,
             results: {
+                playerHealth,
                 playerAttackPower
             }
         }
     }
 
-    const oldEnemyLife = enemy.life
-    const oldEnemyDefensePower = enemy.defensePower
+    const oldOpponentHealth = opponent.health
+    const oldOpponentDefensePower = opponent.defensePower
 
-    var enemyDefensePower = 0
-    var enemyLife = 0
+    var opponentDefensePower = 0
+    var opponentHealth = 0
 
-     const currentEnemyDefensePower = enemy.defensePower -= damage
-     if (currentEnemyDefensePower <= 0) {
-        enemy.defensePower = 0
+    const currentOpponentDefensePower = opponent.defensePower -= damage
+    if (currentOpponentDefensePower <= 0) {
+        opponent.defensePower = 0
 
-        const currentEnemyLife = enemy.life -= damage;
-        if (currentEnemyLife <= 0) {
-            enemy.life = 0
+        const currentOppponentHealth = opponent.health -= damage;
+        if (currentOppponentHealth <= 0) {
+            opponent.health = 0
         } else {
-            enemy.life = currentEnemyLife
+            opponent.health = currentOppponentHealth
         }
+
+        opponentHealth = ((damage * oldOpponentHealth) / 100)
     } else {
-       enemy.defensePower = currentEnemyDefensePower
+        opponent.defensePower = currentOpponentDefensePower
     }
 
-    enemyDefensePower = Math.floor((damage / oldEnemyDefensePower) * 100)
-    enemyLife = ((damage * oldEnemyLife) / 100)
+    opponentDefensePower = (oldOpponentDefensePower === 0) ? 0 : Math.floor((damage / oldOpponentDefensePower) * 100)
 
     return {
         success: true,
         isWon: true,
         player,
-        jenemy,
+        opponent,
         results: {
-           enemyLife,
-           enemyDefensePower
-       }
+            opponentHealth: opponentHealth,
+            opponentDefensePower: opponentDefensePower
+        }
     }
 }
 ```
