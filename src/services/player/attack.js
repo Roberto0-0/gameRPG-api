@@ -51,7 +51,7 @@ class PlayerAttack {
             opponent.defensePower = currentOpponentDefensePower
         }
 
-        opponentDefensePower = Math.floor((damage / oldOpponentDefensePower) * 100)
+        opponentDefensePower = (oldOpponentDefensePower === 0) ? 0 : Math.floor((damage / oldOpponentDefensePower) * 100)
 
         return {
             success: true,
