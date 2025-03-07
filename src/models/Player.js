@@ -13,7 +13,7 @@ class Player {
         this.skills = {
             attackPower: 10,
             defensePower: 10,
-            minePower: 10 
+            minePower: 10
         }
         this.timestamps = {
             nextAttack: Date.now(),
@@ -22,6 +22,7 @@ class Player {
             nextDefenseUpdate: Date.now(),
             nextMineUpdate: Date.now()
         }
+        this.isAdmin = false
         this.createdAt = Date.now()
         this.updatedAt = Date.now()
     }
