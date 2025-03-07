@@ -9,7 +9,7 @@ class Player {
         this.requiredXp = this.requiredXpCalculate(this.level)
         this.coins = 0
         this.diamonds = 0
-        this.attackSuccessful = 0
+        this.attacksSuccessful = 0
         this.skills = {
             attackPower: 10,
             defensePower: 10,
