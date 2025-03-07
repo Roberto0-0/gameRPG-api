@@ -20,7 +20,7 @@ class GroupController {
         return await service.execute(session)
     }
 
-    async saveChanages(session, data) {
+    async saveChanges(session, data) {
         const service = new GroupSaveChanges(this.storage)
         return await service.execute(session, data)
     }
