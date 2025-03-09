@@ -2,12 +2,41 @@ class PlayerAttack {
     execute(player, opponent) {
         const damage = player.attackPower - opponent.defensePower;
 
-        if (damage === 0) return { success: false }
+        let oldPlayerAttackPower = 0
+        let playerAttackPower = 0
+        let oldOpponentHealth = 0
+        let oldOpponentDefensePower = 0
+        let opponentDefensePower = 0
+        let opponentHealth = 0
+
+        if (damage === 0) {
+            oldPlayerAttackPower = player.attackPower
+            oldOpponentDefensePower = opponent.defensePower
+
+            const currentPlayerAttackPower = 10
+            const currentOpponentDefensePower = 10
+            player.attackPower -= currentPlayerAttackPower
+            opponent.defensePower -= currentOpponentDefensePower
+
+            playerAttackPower = Math.floor((currentPlayerAttackPower / oldPlayerAttackPower) * 100)
+            opponentDefensePower = Math.floor((currentOpponentDefensePower / oldOpponentDefensePower) * 100)
+
+            return {
+                succces: false,
+                player,
+                opponent,
+                result: {
+                    playerAttackPower,
+                    opponentDefensePower
+                }
+            }
+
+        }
 
         if (damage < 0) {
-            let oldPlayerAttackPower = player.attackPower
-            let playerAttackPower = 0
-            let damageReturned = Math.abs(damage)
+            oldPlayerAttackPower = player.attackPower
+            playerAttackPower = 0
+            const damageReturned = Math.abs(damage)
 
             let currentAttackPower = player.attackPower -= damageReturned
             if (currentAttackPower <= 0) {
@@ -29,11 +58,11 @@ class PlayerAttack {
             }
         }
 
-        const oldOpponentHealth = opponent.health
-        const oldOpponentDefensePower = opponent.defensePower
+        oldOpponentHealth = opponent.health
+        oldOpponentDefensePower = opponent.defensePower
 
-        var opponentDefensePower = 0
-        var opponentHealth = 0
+        opponentDefensePower = 0
+        opponentHealth = 0
 
         const currentOpponentDefensePower = opponent.defensePower -= damage
         if (currentOpponentDefensePower <= 0) {
