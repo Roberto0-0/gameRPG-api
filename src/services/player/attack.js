@@ -25,7 +25,7 @@ class PlayerAttack {
                 succces: false,
                 player,
                 opponent,
-                result: {
+                results: {
                     playerAttackPower,
                     opponentDefensePower
                 }
