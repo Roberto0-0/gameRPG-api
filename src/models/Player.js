@@ -1,6 +1,7 @@
 class Player {
     constructor(serialized, name) {
         this.serialized = serialized
+        this.avatar = "👤"
         this.name = name
         this.health = 100
         this.currentHealth = 100
