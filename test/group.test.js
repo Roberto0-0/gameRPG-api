@@ -24,6 +24,6 @@ test("should create a group", async () => {
 })
 
 test("should save group changes", async () => {
-    const groupSaveChanges = await group.saveChanages(session, data)
+    const groupSaveChanges = await group.saveChanges(session, data)
     assert.equal(groupSaveChanges.success, true)
 })

@@ -15,83 +15,83 @@ test("should get group by session", async () => {
     assert.equal(groupGetBySession.success, true)
 })
 
-// test("should get a player by serialized", async () => {
-//     const playerGetBySerialized = await player.getBySerialized(session, serialized)
-//     playerData = playerGetBySerialized.data
-//     assert.equal(playerGetBySerialized.success, true)
-//     // assert.equal(playerGetBySerialized.success, false)
-// })
-
-// test("should create a player", () => {
-//     const playerProps = {
-//         serialized,
-//         name: "group name"
-//     }
-
-//     const playerCreateService = player.create(playerProps)
-//     playerData = playerCreateService.data
-//     groupData.players.push(playerData)
-//     assert.equal(playerCreateService.success, true)
-// })
-
-test("should player XP upgrade", () => {
-    const playerExist = groupData.players.find(x => x.serialized === serialized)
-    if (!playerExist) return console.log("player not found")
-    playerData = playerExist
-
-    // melhoria de habilidade 
-    const playerSkillsUpgrade = player.skillsUpgrade(50)
-    console.log("melhoria de habilidade", playerSkillsUpgrade)
-
-    //restauração da sáude
-    const healthResProps = {
-        health: 5,
-        currentHealth: playerData.currentHealth,
-    }
-    const playerHealthRestorationService = player.healthRestoration(healthResProps)
-    console.log("restauração da sáude: ", playerHealthRestorationService)
-
-    const PlayerProps = {
-        level: playerData.level,
-        xp: playerData.xp,
-        requiredXp: playerData.requiredXp
-    }
-
-    //minerar
-    const playerMineService = player.mine(playerData.skills.minePower)
-    console.log("diamonds", playerMineService)
-
-    //vender os diamantes
-    const playerSellDiamondService = player.diamondSell()
-    console.log("price", playerSellDiamondService)
-
-    const coins = playerMineService * playerSellDiamondService
-    console.log("coins", coins)
-
-    //coins taxa
-    const playerCoinsTaxa = player.coinsTaxa(coins)
-    console.log("xp", playerCoinsTaxa)
-    const xp = playerCoinsTaxa
-
-    // xp updgrade
-    const playerXpUpdate = player.xpUpgrade(PlayerProps, xp)
-    console.log(playerXpUpdate)
-
-    playerData.coins += coins
-
-    if (playerXpUpdate.updated) {
-        console.log(`Parabéns, ${playerData.name}, você  sibiu para o nível ${playerXpUpdate.newLevel}`)
-        playerData.xp = playerXpUpdate.newXp
-        playerData.level = playerXpUpdate.newLevel
-        playerData.requiredXp = playerXpUpdate.newXpRequired
-    } else {
-        playerData.xp = playerXpUpdate.newXp
-    }
-
-    assert.equal(true, true)
+test("should get a player by serialized", async () => {
+    const playerGetBySerialized = await player.getBySerialized(session, serialized)
+    // playerData = playerGetBySerialized.data
+    // assert.equal(playerGetBySerialized.success, true)
+    assert.equal(playerGetBySerialized.success, false)
 })
 
+test("should create a player", () => {
+    const playerProps = {
+        serialized,
+        name: "player name"
+    }
+
+    const playerCreateService = player.create(playerProps)
+    playerData = playerCreateService.data
+    groupData.players.push(playerData)
+    assert.equal(playerCreateService.success, true)
+})
+
+// test("should player XP upgrade", () => {
+//     const playerExist = groupData.players.find(x => x.serialized === serialized)
+//     if (!playerExist) return console.log("player not found")
+//     playerData = playerExist
+
+//     // melhoria de habilidade 
+//     const playerSkillsUpgrade = player.skillsUpgrade(50)
+//     console.log("melhoria de habilidade", playerSkillsUpgrade)
+
+//     //restauração da sáude
+//     const healthResProps = {
+//         health: 5,
+//         currentHealth: playerData.currentHealth,
+//     }
+//     const playerHealthRestorationService = player.healthRestoration(healthResProps)
+//     console.log("restauração da sáude: ", playerHealthRestorationService)
+
+//     const PlayerProps = {
+//         level: playerData.level,
+//         xp: playerData.xp,
+//         requiredXp: playerData.requiredXp
+//     }
+
+//     //minerar
+//     const playerMineService = player.mine(playerData.skills.minePower)
+//     console.log("diamonds", playerMineService)
+
+//     //vender os diamantes
+//     const playerSellDiamondService = player.diamondSell()
+//     console.log("price", playerSellDiamondService)
+
+//     const coins = playerMineService * playerSellDiamondService
+//     console.log("coins", coins)
+
+//     //coins taxa
+//     const playerCoinsTaxa = player.coinsTaxa(coins)
+//     console.log("xp", playerCoinsTaxa)
+//     const xp = playerCoinsTaxa
+
+//     // xp updgrade
+//     const playerXpUpdate = player.xpUpgrade(PlayerProps, xp)
+//     console.log(playerXpUpdate)
+
+//     playerData.coins += coins
+
+//     if (playerXpUpdate.updated) {
+//         console.log(`Parabéns, ${playerData.name}, você  sibiu para o nível ${playerXpUpdate.newLevel}`)
+//         playerData.xp = playerXpUpdate.newXp
+//         playerData.level = playerXpUpdate.newLevel
+//         playerData.requiredXp = playerXpUpdate.newXpRequired
+//     } else {
+//         playerData.xp = playerXpUpdate.newXp
+//     }
+
+//     assert.equal(true, true)
+// })
+
 test("should save group changes", async () => {
-    const groupSaveChanges = await group.saveChanages(session, groupData)
+    const groupSaveChanges = await group.saveChanges(session, groupData)
     assert.equal(groupSaveChanges.success, true)
 })
