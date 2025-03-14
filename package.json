@@ -6,7 +6,7 @@
     "author": "Robert",
     "license": "MIT",
     "scripts": {
-        "test": "node --env-file .env --test"
+        "test": "node --test"
     },
     "dependencies": {}
 }
