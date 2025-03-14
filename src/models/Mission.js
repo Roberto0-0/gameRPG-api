@@ -1,9 +1,10 @@
 class Mission {
-    constructor(title, description, tag) {
+    constructor(title, description, tag, icon) {
         this.title = title
         this.info = this.setMission(description, tag)
         this.description = this.info.description
         this.tag = tag
+        this.icon = icon 
         this.objective = this.info.objective
         this.reward = this.info.reward
         this.endAt = this.setEndTime()
