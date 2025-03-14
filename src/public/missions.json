@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Caça aos Diamantes Perdidos",
+        "description": "#playername#, encontre *#quantity# diamantes* antes que o tempo acabe!",
+        "tag": "mine"
+    },
+    {
+        "title": "Negociação Arriscada",
+        "description": "#playername#, venda *#quantity# diamantes* antes que o tempo acabe!",
+        "tag": "sell"
+    },
+    {
+        "title": "Ataque Relâmpago",
+        "description": "#playername#, ataque *#quantity# oponentes* antes que o tempo acabe!",
+        "tag": "attack"
+    },
+    {
+        "title": "Aperfeiçoamento de Mestre",
+        "description": "#playername#, aprimore *#quantity# habilidade* antes que o tempo acabe!",
+        "tag": "up"
+    }
+]
