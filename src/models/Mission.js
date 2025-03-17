@@ -7,7 +7,6 @@ class Mission {
         this.icon = icon 
         this.objective = this.info.objective
         this.reward = this.info.reward
-        this.endAt = this.setEndTime()
     }
 
     setMission(description, tag) {
@@ -65,13 +64,6 @@ class Mission {
         }
 
         return result
-    }
-
-    setEndTime() {
-        let date = new Date()
-        date.setHours(date.getHours() + 24)
-
-        return date.getTime()
     }
 }
 
