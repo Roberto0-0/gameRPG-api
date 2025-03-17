@@ -11,7 +11,7 @@ class Player {
         this.coins = 0
         this.diamonds = 0
         this.attacksSuccessful = 0
-        this.mission = null 
+        this.mission = null
         this.skills = {
             attackPower: 10,
             defensePower: 10,
@@ -23,7 +23,7 @@ class Player {
             nextAttackUpdate: Date.now(),
             nextDefenseUpdate: Date.now(),
             nextMineUpdate: Date.now(),
-            nextMission: Date.now()
+            nextMission: this.nextSetMission() 
         }
         this.isAdmin = false
         this.createdAt = Date.now()
@@ -32,6 +32,13 @@ class Player {
 
     requiredXpCalculate(level) {
         return Math.floor(Math.pow(level, 2) * 10)
+    }
+
+    nextSetMission() {
+        let nextMidnight = new Date();
+        nextMidnight.setDate(nextMidnight.getDate() + 1)
+        nextMidnight.setHours(0, 0, 0, 0)
+        return nextMidnight.getTime()
     }
 }
 
