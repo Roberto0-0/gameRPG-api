@@ -4,7 +4,7 @@ class PlayerCoinsTaxa {
             { coins: 1, xp: 0.75, limite: 100 },
             { coins: 101, xp: 0.25, limite: 500 },
             { coins: 501, xp: 0.15, limite: 1000 },
-            { coins: 1001, xp: 0.5, limite: 999999 }
+            { coins: 1001, xp: 0.1, limite: 999999 }
         ]
 
         let xp = 0;
