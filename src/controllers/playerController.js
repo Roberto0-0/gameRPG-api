@@ -1,13 +1,14 @@
 const { GroupGetBySession } = require("../services/group/getBySession")
 const { PlayerCreate } = require("../services/player/create")
 const { PlayerGetBySerialized } = require("../services/player/getBySerialized")
-const { PlayerAttack } = require("../services/player/attack")
+const { PlayerBattle } = require("../services/player/battle")
 const { PlayerMine } = require("../services/player/mine")
 const { PlayerXpUpgrade } = require("../services/player/xpUpgrade")
 const { PlayerCoinsTaxa } = require("../services/player/coinsTaxa")
 const { PlayerSellDiamond } = require("../services/player/diamondSell")
 const { PlayerSkillsUpgrade } = require("../services/player/skillsUpgrade")
 const { PlayerHealthRestaurestion } = require("../services/player/healthRestoration")
+const { PlayerGetRank } = require("../services/player/getRank")
 
 const path = require("node:path")
 
@@ -26,8 +27,8 @@ class PlayerController {
         return await service.execute(session, serialized)
     }
 
-    attack(player, enemy) {
-        return new PlayerAttack().execute(player, enemy)
+    battle(player, enemy, battleMode) {
+        return new PlayerBattle().execute(player, enemy, battleMode)
     }
 
     healthRestoration(player) {
@@ -52,6 +53,10 @@ class PlayerController {
 
     skillsUpgrade(skill) {
         return new PlayerSkillsUpgrade().execute(skill)
+    }
+
+    getRank(level) {
+        return new PlayerGetRank().execute(level)
     }
 }
 
