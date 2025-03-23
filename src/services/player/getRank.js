@@ -19,7 +19,7 @@ class PlayerGetRank {
         const currentDivision = divisions[divisionIndex];
         const currentIcon = icons[rankIndex]
 
-        return `${currentIcon} *${currentRank} ${currentDivision}*`;
+        return `${currentIcon}   *${currentRank} ${currentDivision}*`;
     }
 }
 
