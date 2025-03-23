@@ -143,14 +143,28 @@ class PlayerBattle {
                 oldOpponentHealth = opponent.health
                 opponent.defensePower = 0
                 opponent.health -= damage;
-                if (opponent.health < 0) opponent.health = 0
+
+                if (opponent.health <= 0) {
+                    opponent.health = 0
+
+                    return {
+                        mode: "attackXdefense",
+                        isWon: true,
+                        player,
+                        opponent,
+                        results: {
+                            opponentHealth: 100,
+                            opponentDefensePower: 100
+                        }
+                    }
+                }
 
                 opponentHealth = Math.floor((damage / oldOpponentHealth) * 100)
                 if (opponentHealth > 100) opponentHealth = 100
 
                 return {
                     mode: "attackXdefense",
-                    isWon: true,
+                    isWon: false,
                     player,
                     opponent,
                     results: {
@@ -158,6 +172,7 @@ class PlayerBattle {
                         opponentDefensePower: 100
                     }
                 }
+
             }
         }
 
