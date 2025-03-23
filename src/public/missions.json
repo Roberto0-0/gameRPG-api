@@ -1,25 +1,25 @@
 [
     {
         "title": "Caça aos Diamantes Perdidos",
-        "description": "#playername#, encontre *#quantity# diamantes* antes que o tempo acabe!",
+        "description": "#playername#, corra contra o tempo para coletar *#quantity# diamantes* antes que seja tarde.",
         "tag": "mine",
         "icon": "💎"
     },
     {
         "title": "Negociação Arriscada",
-        "description": "#playername#, venda *#quantity# diamantes* antes que o tempo acabe!",
+        "description": "#playername#, transforme *#quantity# diamantes* em lucro antes que o tempo se esgote.",
         "tag": "sell",
         "icon": "💎"
     },
     {
         "title": "Ataque Relâmpago",
-        "description": "#playername#, ataque *#quantity# oponentes* antes que o tempo acabe!",
+        "description": "#playername#, prove sua habilidade atacando *#quantity# oponentes* antes que o relógio pare.",
         "tag": "attack",
         "icon": "🗡️"
     },
     {
         "title": "Aperfeiçoamento de Mestre",
-        "description": "#playername#, aprimore *#quantity# habilidade* antes que o tempo acabe!",
+        "description": "#playername#, aprimore *#quantity# habilidade* antes que o tempo acabe.",
         "tag": "up",
         "icon": "🔥"
     }
