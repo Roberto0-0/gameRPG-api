@@ -55,8 +55,8 @@ class PlayerController {
         return new PlayerSkillsUpgrade().execute(skill)
     }
 
-    getRank(level) {
-        return new PlayerGetRank().execute(level)
+    getRank(score) {
+        return new PlayerGetRank().execute(score)
     }
 }
 
