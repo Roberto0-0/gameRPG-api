@@ -12,6 +12,7 @@ class Player {
         this.diamonds = 0
         this.keys = 0
         this.attacksSuccessful = 0
+        this.seasonScore = 0
         this.mission = null
         this.boosts = []
         this.skills = {
