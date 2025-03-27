@@ -1,25 +1,28 @@
 class PlayerGetRank {
-    execute(level) {
+    execute(score) {
         const ranks = [
-            "bronze",
-            "prata",
-            "ouro",
-            "mestre",
-            "lenda"
+            { name: "Bronze", icon: "🥉", minScore: 0, maxScore: 429, tiers: 5 },
+            { name: "Prata", icon: "🥈", minScore: 430, maxScore: 1074, tiers: 5 },
+            { name: "Ouro", icon: "🥇", minScore: 1075, maxScore: 2041, tiers: 5 },
+            { name: "Mestre", icon: "🏅", minScore: 2042, maxScore: 3492, tiers: 1 },
+            { name: "Lenda", icon: "🎖️", minScore: 3493, maxScore: Infinity, tiers: 1 }
         ]
 
-        const divisions = ["V", "IV", "III", "II", "I"];
-        const icons = ["🥉", "🥈", "🥇", "🏅", "🎖️"]
+        for (let rank of ranks) {
+            if (score >= rank.minScore && score <= rank.maxScore) {
+                if (rank.name === "Mestre" || rank.name === "Lenda") {
+                    return `${rank.icon}   *${rank.name}*`;
+                }
 
-        const rankIndex = Math.floor((level - 1) / 20)
-        const divisionProgress = (level - 1) % 20
-        const divisionIndex = Math.floor((divisionProgress + 1) / 5)
-
-        const currentRank = ranks[rankIndex];
-        const currentDivision = divisions[divisionIndex];
-        const currentIcon = icons[rankIndex]
-
-        return `${currentIcon}   *${currentRank} ${currentDivision}*`;
+                const scorePerTier = (rank.maxScore - rank.minScore + 1) / rank.tiers;
+                const tierLevel = Math.min(
+                    rank.tiers,
+                    Math.ceil((score - rank.minScore + 1) / scorePerTier)
+                );
+                const tier = romanize(rank.tiers - tierLevel + 1);
+                return `${rank.icon}   *${rank.name} ${tier}*`;
+            }
+        }
     }
 }
 
