@@ -8,6 +8,8 @@ class PlayerGetRank {
             { name: "Lenda", icon: "🎖️", minScore: 3493, maxScore: Infinity, tiers: 1 }
         ]
 
+        const divisions = ["I", "II", "III", "IV", "V"]
+
         for (let rank of ranks) {
             if (score >= rank.minScore && score <= rank.maxScore) {
                 if (rank.name === "Mestre" || rank.name === "Lenda") {
@@ -19,7 +21,9 @@ class PlayerGetRank {
                     rank.tiers,
                     Math.ceil((score - rank.minScore + 1) / scorePerTier)
                 );
-                const tier = romanize(rank.tiers - tierLevel + 1);
+
+                const tier = divisions[(rank.tiers - tierLevel + 1) - 1]
+
                 return `${rank.icon}   *${rank.name} ${tier}*`;
             }
         }
