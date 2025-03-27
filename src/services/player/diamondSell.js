@@ -7,7 +7,6 @@ class PlayerSellDiamond {
         let result = 0
         let playerCoins = 0
 
-
         const numberRandom = Math.floor(Math.random() * (allWeight - 1) + 0)
 
         if (numberRandom <= weight[0]) {
