@@ -51,8 +51,8 @@ class PlayerController {
         return new PlayerSellDiamond().execute(diamonds)
     }
 
-    skillsUpgrade(skill) {
-        return new PlayerSkillsUpgrade().execute(skill)
+    skillsUpgrade(skill, fullPower) {
+        return new PlayerSkillsUpgrade().execute(skill, fullPower)
     }
 
     getRank(score) {
