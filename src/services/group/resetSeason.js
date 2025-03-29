@@ -23,14 +23,14 @@ class GroupResetSeason {
             return x.scoreSeason - y.scoreSeason
         }).reverse()
 
-        let topPlayer = _group.palyers[0]
+        let topPlayer = _group.players[0]
 
         const newSeason = {
             season: _group.currentSeason.season,
             player: {
                 serialized: topPlayer.serialized,
                 name: topPlayer.name,
-                seasonScore: topPlayer.scoreSeason
+                scoreSeason: topPlayer.scoreSeason
             },
             createdAt: _group.currentSeason.createdAt
         }
