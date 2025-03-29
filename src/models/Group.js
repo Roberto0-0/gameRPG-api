@@ -34,26 +34,28 @@ class Group {
 
     resetSeason(_group) {
         _group.players.sort((x, y) => {
-            return x.seasonScore - y.seasonScore
+            return x.scoreSeason - y.scoreSeason
         }).reverse()
 
         let topPlayer = _group.palyers[0]
 
         const newSeason = {
-            season: _group.currentSeason,
+            season: _group.currentSeason.season,
             player: {
                 serialized: topPlayer.serialized,
                 name: topPlayer.name,
-                seasonScore: topPlayer.seasonScore
-            }
+                seasonScore: topPlayer.scoreSeason
+            },
+            createdAt: _group.currentSeason.createdAt
         }
 
         _group.nextSeason = this.setNextSeason()
         _group.seasons.push(newSeason)
-        _group.currentSeason += 1
+        _group.currentSeason.season += 1
+        _group.currentSeason.createdAt = Date.now()
 
         for (let player of _group.players) {
-            player.seasonScore = 0
+            player.scoreSeason = 0
         }
 
         return
