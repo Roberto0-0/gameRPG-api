@@ -24,6 +24,9 @@ class GroupResetSeason {
         }).reverse()
 
         let topPlayer = _group.players[0]
+        topPlayer.coins += 1000 
+        topPlayer.diamonds += 100
+        topPlayer.keys += 10 
 
         const newSeason = {
             season: _group.currentSeason.season,
