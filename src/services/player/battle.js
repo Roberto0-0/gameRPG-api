@@ -8,7 +8,7 @@ class PlayerBattle {
                 const newOpponentHealth = opponent.health - player.attackPower
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackpower = 10
+                if (player.attackPower <= 0) player.attackPower = 10
 
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
@@ -48,7 +48,7 @@ class PlayerBattle {
                 const newOpponentHealth = opponent.health - player.attackPower
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackpower = 10
+                if (player.attackPower <= 0) player.attackPower = 10
 
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
@@ -118,7 +118,7 @@ class PlayerBattle {
                 const damage = player.attackPower - opponent.defensePower;
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackpower = 10
+                if (player.attackPower <= 0) player.attackPower = 10
 
                 if (damage === 0) {
                     return {
