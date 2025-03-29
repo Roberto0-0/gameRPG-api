@@ -7,6 +7,9 @@ class PlayerBattle {
 
                 const newOpponentHealth = opponent.health - player.attackPower
 
+                player.attackPower -= 10
+                if (player.attackPower <= 0) player.attackpower = 10
+
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
 
@@ -44,6 +47,9 @@ class PlayerBattle {
 
                 const newOpponentHealth = opponent.health - player.attackPower
 
+                player.attackPower -= 10
+                if (player.attackPower <= 0) player.attackpower = 10
+
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
 
@@ -64,6 +70,9 @@ class PlayerBattle {
                 opponentHealth = Math.floor((currentOppponentHealth / oldOpponentHealth) * 100)
 
                 const newPlayerHealth = player.health - opponent.attackPower
+
+                opponent.attackPower -= 10
+                if (opponent.attackPower <= 0) opponent.attackPower = 10
 
                 oldPlayerHealth = player.health
                 const currentPlayerHealth = player.health -= Math.max(newPlayerHealth, 0)
@@ -107,6 +116,9 @@ class PlayerBattle {
                 let opponentHealth = 0
 
                 const damage = player.attackPower - opponent.defensePower;
+
+                player.attackPower -= 10
+                if (player.attackPower <= 0) player.attackpower = 10
 
                 if (damage === 0) {
                     return {
