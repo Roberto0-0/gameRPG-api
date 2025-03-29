@@ -13,7 +13,7 @@ class Player {
         this.keys = 0
         this.attacksSuccessful = 0
         this.scoreSeason = 0
-        this.pickaxeUse = 5
+        this.pickaxeUse = 10 
         this.storageDiamonds = 100
         this.mission = null
         this.boosts = []
