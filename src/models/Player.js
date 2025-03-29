@@ -12,7 +12,9 @@ class Player {
         this.diamonds = 0
         this.keys = 0
         this.attacksSuccessful = 0
-        this.seasonScore = 0
+        this.scoreSeason = 0
+        this.pickaxeUse = 5
+        this.storageDiamonds = 100
         this.mission = null
         this.boosts = []
         this.skills = {
@@ -26,6 +28,7 @@ class Player {
             nextAttackUpdate: Date.now(),
             nextDefenseUpdate: Date.now(),
             nextMineUpdate: Date.now(),
+            nextDuel: Date.now(),
             nextMission: this.nextSetMission() 
         }
         this.isAdmin = false
