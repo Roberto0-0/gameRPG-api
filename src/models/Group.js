@@ -3,7 +3,10 @@ class Group {
         this.session = session
         this.name = name
         this.players = []
-        this.currentSeason = 1
+        this.currentSeason = {
+            season: 1,
+            createdAt: Date.now() 
+        }
         this.seasons = []
         this.nextSeason = this.setNextSeason()
         this.status = true
