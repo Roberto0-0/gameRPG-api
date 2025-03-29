@@ -1,6 +1,7 @@
 const { GroupCreate } = require("../services/group/create")
 const { GroupGetBySession } = require("../services/group/getBySession")
 const { GroupSaveChanges } = require("../services/group/saveChanges")
+const { GroupResetSeason } = require("../services/group/resetSeason")
 const { existsSync, mkdirSync } = require("node:fs")
 
 const path = require("node:path")
@@ -25,8 +26,12 @@ class GroupController {
         return await service.execute(session, data)
     }
 
+    resetSeason(group) {
+        return new GroupResetSeason().execute(group)
+    }
+
     _storagePathExist() {
-        if(!existsSync(this.storage)) mkdirSync(this.storage)
+        if (!existsSync(this.storage)) mkdirSync(this.storage)
     }
 }
 
