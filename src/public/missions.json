@@ -22,6 +22,12 @@
         "description": "#playername#, aprimore *#quantity# habilidade* antes que o tempo acabe.",
         "tag": "up",
         "icon": "🔥"
+    },
+    {
+        "title": "Duelo Decisivo",
+        "description": "#playername#, acerte *#quantity# palpites* no duelo de giganets antes que o rugido final ecoe.",
+        "tag": "duel",
+        "icon": "🏆"
     }
 ]
 

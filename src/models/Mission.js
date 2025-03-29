@@ -4,7 +4,7 @@ class Mission {
         this.info = this.setMission(description, tag)
         this.description = this.info.description
         this.tag = tag
-        this.icon = icon 
+        this.icon = icon
         this.objective = this.info.objective
         this.reward = this.info.reward
     }
@@ -57,6 +57,19 @@ class Mission {
                     reward: 1000,
                     objective: {
                         expected: 1,
+                        currentValue: 0
+                    }
+                }
+                break
+            case "duel":
+                let duels = randomValue(1, 3)
+                description = description.replace("#quantity#", duels)
+                description = description.replace("palpites", (duels == 1) ? "palpite" : "palpites")
+                result = {
+                    description: description,
+                    reward: 1000,
+                    objective: {
+                        expected: duels,
                         currentValue: 0
                     }
                 }
