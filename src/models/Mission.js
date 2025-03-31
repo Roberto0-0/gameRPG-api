@@ -13,7 +13,7 @@ class Mission {
         const rewards = [
             { name: "coins", icon: "🪙", value: 1000 },
             { name: "keys", icon: "🗝️", value: 10 },
-            { name: "diamonds", icon: "💎", value: 100 }
+            { name: "diamonds", icon: "💎", value: 50 }
         ]
 
         return rewards[Math.floor(Math.random() * (rewards.length - 0) + 0)]
