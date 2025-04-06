@@ -7,7 +7,7 @@ class GroupResetSeason {
             if (day === 0) {
                 date.setDate(date.getDate() + 7)
                 date.setHours(0, 0, 0)
-                return date.toString()
+                return date.getTime()
             }
 
             let lastWeekDay = 6
