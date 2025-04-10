@@ -10,7 +10,7 @@ class PlayerMine {
             { level: 70, minDiamonds: 20, maxDiamonds: 35 },
             { level: 80, minDiamonds: 25, maxDiamonds: 40 },
             { level: 90, minDiamonds: 30, maxDiamonds: 45 },
-            { level: 100, maxDiamonds: 35, maxDiamonds: 50 }
+            { level: 100, minDiamonds: 35, maxDiamonds: 50 }
         ]
 
         const diamondsRandom = (x, y) => Math.floor(Math.random() * (y - x) + x)
