@@ -8,7 +8,7 @@ class Player {
         this.level = 1
         this.xp = 0
         this.requiredXp = this.requiredXpCalculate(this.level)
-        this.coins = 0
+        this.coins = 1000 
         this.diamonds = 0
         this.keys = 0
         this.attacksSuccessful = 0
