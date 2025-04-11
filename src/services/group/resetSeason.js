@@ -19,14 +19,34 @@ class GroupResetSeason {
             return date.getTime()
         }
 
+        function coinLimitVerify(playerCurrentCoins, newCoins) {
+            playerCurrentCoins += newCoins
+            if (playerCurrentCoins > 99999) playerCurrentCoins = 99999
+
+            return playerCurrentCoins
+        }
+
         _group.players.sort((x, y) => {
             return x.scoreSeason - y.scoreSeason
         }).reverse()
 
+        let endSeasonInfo = {
+            season: _group.currentSeason.season, 
+            playerName: "",
+            playerScore: 0,
+            coins: 5000,
+            diamonds: 100,
+            keys: 20
+        }
+
         let topPlayer = _group.players[0]
-        topPlayer.coins += 1000 
-        topPlayer.diamonds += 100
-        topPlayer.keys += 10 
+
+        endSeasonInfo.playerName = topPlayer.name
+        endSeasonInfo.playerScore = topPlayer.scoreSeason
+
+        topPlayer.coins = coinLimitVerify(topPlayer.coins, endSeasonInfo.coins) 
+        topPlayer.diamonds += endSeasonInfo.diamonds 
+        topPlayer.keys += endSeasonInfo.keys 
 
         const newSeason = {
             season: _group.currentSeason.season,
@@ -47,7 +67,7 @@ class GroupResetSeason {
             player.scoreSeason = 0
         }
 
-        return
+        return endSeasonInfo
     }
 }
 
