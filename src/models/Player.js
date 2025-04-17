@@ -29,6 +29,7 @@ class Player {
             nextDefenseUpdate: Date.now(),
             nextMineUpdate: Date.now(),
             nextDuel: Date.now(),
+            nextSlot: Date.now(),
             nextMission: this.nextSetMission() 
         }
         this.isAdmin = false
