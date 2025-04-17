@@ -21,11 +21,11 @@ class Mission {
 
     setMission(description, tag) {
         let result = {}
-        const randomValue = (min, max) => Math.floor(Math.random() * (max - min) + min)
+        const RNG = (min, max) => Math.floor(Math.random() * (max - min) + min)
 
         switch (tag) {
             case "mine":
-                let diamonds = randomValue(50, 500)
+                let diamonds = RNG(50, 500)
                 result = {
                     description: description.replace("#quantity#", diamonds),
                     reward: this.setReward(),
@@ -36,7 +36,7 @@ class Mission {
                 }
                 break
             case "sell":
-                let sales = randomValue(50, 500)
+                let sales = RNG(50, 500)
                 result = {
                     description: description.replace("#quantity#", sales),
                     reward: this.setReward(),
@@ -48,7 +48,7 @@ class Mission {
                 break
 
             case "attack":
-                let opponents = randomValue(1, 3)
+                let opponents = RNG(1, 3)
                 description = description.replace("#quantity#", opponents)
                 description = description.replace("oponentes", (opponents == 1) ? "oponente" : "oponentes")
 
@@ -72,9 +72,22 @@ class Mission {
                 }
                 break
             case "duel":
-                let duels = randomValue(1, 3)
+                let duels = RNG(1, 3)
                 description = description.replace("#quantity#", duels)
                 description = description.replace("palpites", (duels == 1) ? "palpite" : "palpites")
+                result = {
+                    description: description,
+                    reward: this.setReward(),
+                    objective: {
+                        expected: duels,
+                        currentValue: 0
+                    }
+                }
+                break
+            case "slot":
+                let slots = RNG(1, 3)
+                description = description.replace("#quantity#", slots)
+                description = description.replace("rodadas", (slots == 1) ? "rodada" : "rodadas")
                 result = {
                     description: description,
                     reward: this.setReward(),

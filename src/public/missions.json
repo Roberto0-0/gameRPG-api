@@ -28,6 +28,11 @@
         "description": "#playername#, acerte *#quantity# palpites* no duelo de giganets antes que o rugido final ecoe.",
         "tag": "duel",
         "icon": "🏆"
+    },
+    {
+        "title": "Mestre do Cassino",
+        "description": "#playername#, vença *#quantity# rodadas* na Máquina Caça-níquel antes que o tempo se esgote.",
+        "tag": "slot",
+        "icon": "🎰"
     }
 ]
-
