@@ -1,18 +1,18 @@
 class PlayerGetRank {
     execute(score) {
         const ranks = [
-            { name: "Bronze", icon: "🥉", minScore: 0, maxScore: 429, tiers: 5 },
-            { name: "Prata", icon: "🥈", minScore: 430, maxScore: 1074, tiers: 5 },
-            { name: "Ouro", icon: "🥇", minScore: 1075, maxScore: 2041, tiers: 5 },
-            { name: "Mestre", icon: "🏅", minScore: 2042, maxScore: 3492, tiers: 1 },
-            { name: "Lenda", icon: "🎖️", minScore: 3493, maxScore: Infinity, tiers: 1 }
+            { name: "𝐁𝐫𝐨𝐧𝐳𝐞", icon: "🥉", minScore: 0, maxScore: 429, tiers: 5 },
+            { name: "𝐏𝐫𝐚𝐭𝐚", icon: "🥈", minScore: 430, maxScore: 1074, tiers: 5 },
+            { name: "𝐎𝐮𝐫𝐨", icon: "🥇", minScore: 1075, maxScore: 2041, tiers: 5 },
+            { name: "𝐌𝐞𝐬𝐭𝐫𝐞", icon: "🏅", minScore: 2042, maxScore: 3492, tiers: 1 },
+            { name: "𝐋𝐞𝐧𝐝𝐚", icon: "🎖️", minScore: 3493, maxScore: Infinity, tiers: 1 }
         ]
 
-        const divisions = ["I", "II", "III", "IV", "V"]
+        const divisions = ["𝐈", "𝐈𝐈", "𝐈𝐈𝐈", "𝐈𝐕", "𝐕"]
 
         for (let rank of ranks) {
             if (score >= rank.minScore && score <= rank.maxScore) {
-                if (rank.name === "Mestre" || rank.name === "Lenda") {
+                if (rank.name === "𝐌𝐞𝐬𝐭𝐫𝐞" || rank.name === "𝐋𝐞𝐧𝐝𝐚") {
                     return `${rank.icon}   *${rank.name}*`;
                 }
 
@@ -24,7 +24,7 @@ class PlayerGetRank {
 
                 const tier = divisions[(rank.tiers - tierLevel + 1) - 1]
 
-                return `${rank.icon}   *${rank.name} ${tier}*`;
+                return `${rank.icon}\t\t*${rank.name} ${tier}*`;
             }
         }
     }
