@@ -8,7 +8,7 @@ class PlayerBattle {
                 const newOpponentHealth = opponent.health - player.attackPower
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackPower = 10
+                if (player.attackPower <= 0) player.attackPower = 0 
 
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
@@ -48,7 +48,7 @@ class PlayerBattle {
                 const newOpponentHealth = opponent.health - player.attackPower
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackPower = 10
+                if (player.attackPower <= 0) player.attackPower = 0 
 
                 if (newOpponentHealth <= 0) {
                     opponent.health = 0
@@ -72,7 +72,7 @@ class PlayerBattle {
                 const newPlayerHealth = player.health - opponent.attackPower
 
                 opponent.attackPower -= 10
-                if (opponent.attackPower <= 0) opponent.attackPower = 10
+                if (opponent.attackPower <= 0) opponent.attackPower = 0 
 
                 oldPlayerHealth = player.health
                 const currentPlayerHealth = player.health -= Math.max(newPlayerHealth, 0)
@@ -118,7 +118,7 @@ class PlayerBattle {
                 const damage = player.attackPower - opponent.defensePower;
 
                 player.attackPower -= 10
-                if (player.attackPower <= 0) player.attackPower = 10
+                if (player.attackPower <= 0) player.attackPower = 0 
 
                 if (damage === 0) {
                     return {
@@ -136,10 +136,11 @@ class PlayerBattle {
 
                 if (damage < 0) {
                     oldOpponentDefensePower = opponent.defensePower
-                    opponent.defensePower -= Math.abs(damage)
+                    let damageCaused = oldOpponentDefensePower - Math.abs(damage)
+                    opponent.defensePower -= damageCaused
                     if (opponent.defensePower < 0) opponent.defensePower = 0
 
-                    opponentDefensePower = (oldOpponentDefensePower === 0) ? 0 : Math.floor((Math.abs(damage) / oldOpponentDefensePower) * 100)
+                    opponentDefensePower = (oldOpponentDefensePower === 0) ? 0 : Math.floor((damageCaused / oldOpponentDefensePower) * 100)
 
                     return {
                         mode: "attackXdefense",
