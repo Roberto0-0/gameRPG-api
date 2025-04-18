@@ -24,7 +24,7 @@ class PlayerGetRank {
 
                 const tier = divisions[(rank.tiers - tierLevel + 1) - 1]
 
-                return `${rank.icon}\t\t*${rank.name} ${tier}*`;
+                return `${rank.icon}   *${rank.name} ${tier}*`;
             }
         }
     }
