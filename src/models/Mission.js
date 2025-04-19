@@ -92,7 +92,7 @@ class Mission {
                     description: description,
                     reward: this.setReward(),
                     objective: {
-                        expected: duels,
+                        expected: slots,
                         currentValue: 0
                     }
                 }
