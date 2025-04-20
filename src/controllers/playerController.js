@@ -27,8 +27,8 @@ class PlayerController {
         return await service.execute(session, serialized)
     }
 
-    battle(player, enemy, battleMode) {
-        return new PlayerBattle().execute(player, enemy, battleMode)
+    battle(player, enemy) {
+        return new PlayerBattle().execute(player, enemy)
     }
 
     healthRestoration(player) {
