@@ -21,7 +21,7 @@ class GroupResetSeason {
 
         function coinLimitVerify(playerCurrentCoins, newCoins) {
             playerCurrentCoins += newCoins
-            if (playerCurrentCoins > 99999) playerCurrentCoins = 99999
+            if (playerCurrentCoins > 999999) playerCurrentCoins = 999999
 
             return playerCurrentCoins
         }
@@ -34,15 +34,18 @@ class GroupResetSeason {
             season: _group.currentSeason.season, 
             playerName: "",
             playerScore: 0,
-            coins: 5000,
-            diamonds: 100,
-            keys: 20
+            coins: 1,
+            diamonds: 1,
+            keys: 1 
         }
 
         let topPlayer = _group.players[0]
 
         endSeasonInfo.playerName = topPlayer.name
         endSeasonInfo.playerScore = topPlayer.scoreSeason
+        endSeasonInfo.coins = Math.floor(topPlayer.scoreSeason * 1) 
+        endSeasonInfo.diamonds = Math.floor((topPlayer.scoreSeason*1)/50)
+        endSeasonInfo.keys = Math.floor((topPlayer.scoreSeason*1)/500)
 
         topPlayer.coins = coinLimitVerify(topPlayer.coins, endSeasonInfo.coins) 
         topPlayer.diamonds += endSeasonInfo.diamonds 
