@@ -24,7 +24,7 @@ class GroupGetAll {
         const data = []
 
         for (let group of groups) {
-            data.push(new GroupGetAllDTO(group.session, group.serialized, group.name))
+            data.push(new GroupGetAllDTO(group.session, group.name))
         }
 
         return {
