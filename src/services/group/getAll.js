@@ -1,4 +1,4 @@
-const { readFileSync, readFileSync } = require("node:fs")
+const { readFileSync, readdirSync } = require("node:fs")
 const { GroupGetAllDTO } = require("../../DTOS/groupGetAllDTO")
 
 class GroupGetAll {
