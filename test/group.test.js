@@ -9,7 +9,7 @@ var data
 
 test("should get group by session", async () => {
     const groupGetBySession = await group.getBySession(session)
-    assert.equal(groupGetBySession.success, false)
+    assert.equal(groupGetBySession.success, true)
 })
 
 test("should create a group", async () => {
@@ -21,6 +21,11 @@ test("should create a group", async () => {
     const groupCreateService = group.create(groupProps)
     data = groupCreateService
     assert.equal(groupCreateService.session, groupProps.session)
+})
+
+test("should get all groups", async () => {
+    const groupGetAllService = await group.getAll()
+    assert.equal(groupGetAllService.success, true)
 })
 
 test("should save group changes", async () => {
