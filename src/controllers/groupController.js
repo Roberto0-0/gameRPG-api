@@ -23,7 +23,7 @@ class GroupController {
     }
 
     async getAll() {
-        return new GroupGetAll().execute()
+        return new GroupGetAll(this.storage).execute()
     }
 
     async saveChanges(session, data) {
